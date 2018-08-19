@@ -142,3 +142,38 @@ assert count_gender(data_list)[0] == 935854 and count_gender(data_list)[1] == 29
 # -----------------------------------------------------
 
 input("Aperte Enter para continuar...")
+# Agora que nós podemos contar os usuários, qual gênero é mais prevalente?
+# TAREFA 6
+# TODO: Crie uma função que pegue o gênero mais popular, e retorne este gênero como uma string.
+# Esperamos ver "Masculino", "Feminino", ou "Igual" como resposta.
+def most_popular_gender(data_list):
+    answer = "Igual"
+    count = count_gender(data_list)
+    if count[0] > count[1]:
+        answer = "Masculino"
+    elif count[0] < count[1]:
+        answer = "Feminino"
+    return answer
+
+
+print("\nTAREFA 6: Qual é o gênero mais popular na lista?")
+print("O gênero mais popular na lista é: ", most_popular_gender(data_list))
+
+# ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
+assert type(most_popular_gender(data_list)) is str, "TAREFA 6: Tipo incorreto no retorno. Deveria retornar uma string."
+assert most_popular_gender(data_list) == "Masculino", "TAREFA 6: Resultado de retorno incorreto!"
+# -----------------------------------------------------
+
+# Se tudo está rodando como esperado, verifique este gráfico!
+gender_list = column_to_list(data_list, -2)
+types = ["Male", "Female"]
+quantity = count_gender(data_list)
+y_pos = list(range(len(types)))
+plt.bar(y_pos, quantity)
+plt.ylabel('Quantidade')
+plt.xlabel('Gênero')
+plt.xticks(y_pos, types)
+plt.title('Quantidade por Gênero')
+plt.show(block=True)
+
+input("Aperte Enter para continuar...")
