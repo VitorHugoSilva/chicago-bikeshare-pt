@@ -168,12 +168,39 @@ assert most_popular_gender(data_list) == "Masculino", "TAREFA 6: Resultado de re
 gender_list = column_to_list(data_list, -2)
 types = ["Male", "Female"]
 quantity = count_gender(data_list)
+print(quantity)
 y_pos = list(range(len(types)))
 plt.bar(y_pos, quantity)
 plt.ylabel('Quantidade')
 plt.xlabel('Gênero')
 plt.xticks(y_pos, types)
 plt.title('Quantidade por Gênero')
+plt.show(block=True)
+
+input("Aperte Enter para continuar...")
+# TAREFA 7
+# TODO: Crie um gráfico similar para user_types. Tenha certeza que a legenda está correta.
+
+def count_user_types(data_list):
+    user_types = list(set(column_to_list(data_list, -3)))
+    count_types = []
+
+    for user_type in user_types:
+        count_types.append(len([count for count in column_to_list(data_list, -3) if count == user_type]))
+    return count_types
+
+
+print("\nTAREFA 7: Verifique o gráfico!")
+
+user_types_list = column_to_list(data_list, -3)
+user_types = list(set(column_to_list(data_list, -3)))
+quantity_user_type = count_user_types(data_list)
+y_pos_user = list(range(len(user_types)))
+plt.bar(y_pos_user, quantity_user_type)
+plt.ylabel('Quantidade')
+plt.xlabel('Tipo de usuário')
+plt.xticks(y_pos_user, user_types)
+plt.title('Quantidade por tipo de usuário')
 plt.show(block=True)
 
 input("Aperte Enter para continuar...")
