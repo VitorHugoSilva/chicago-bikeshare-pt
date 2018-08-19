@@ -40,3 +40,21 @@ for data in data_list[:20]:
 # Por exemplo: sample[6] para imprimir gênero, ou sample[-2]
 
 input("Aperte Enter para continuar...")
+# TAREFA 2
+# TODO: Imprima o `gênero` das primeiras 20 linhas
+
+print("\nTAREFA 2: Imprimindo o gênero das primeiras 20 amostras")
+
+for data in data_list[:20]:
+
+	if data[6] == '':
+		gender = 'uninformed'
+	else:
+		gender = data[6]
+
+	print(gender)
+
+# Ótimo! Nós podemos pegar as linhas(samples) iterando com um for, e as colunas(features) por índices.
+# Mas ainda é difícil pegar uma coluna em uma lista. Exemplo: Lista com todos os gêneros
+
+input("Aperte Enter para continuar...")
