@@ -204,3 +204,16 @@ plt.title('Quantidade por tipo de usuário')
 plt.show(block=True)
 
 input("Aperte Enter para continuar...")
+# TAREFA 8
+# TODO: Responda a seguinte questão
+male, female = count_gender(data_list)
+print("\nTAREFA 8: Por que a condição a seguir é Falsa?")
+print("male + female == len(data_list):", male + female == len(data_list))
+answer = "Porque o len(data_list) está armazenando o tamanho total da lista (data_list) que contém valores em brancos.\n E a soma de (male) e (female) estão somando apenas valores com \"Male\" e \"Female\""
+print("resposta:", answer)
+
+# ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
+assert answer != "Escreva sua resposta aqui.", "TAREFA 8: Escreva sua própria resposta!"
+# -----------------------------------------------------
+
+input("Aperte Enter para continuar...")
