@@ -1,3 +1,6 @@
+# coding: utf-8
+
+# Começando com os imports
 import csv
 import matplotlib.pyplot as plt
 
@@ -20,5 +23,20 @@ print(data_list[0])
 # Imprimindo a segunda linha de data_list, ela deveria conter alguns dados
 print("Linha 1: ")
 print(data_list[1])
+
+input("Aperte Enter para continuar...")
+# TAREFA 1
+# TODO: Imprima as primeiras 20 linhas usando um loop para identificar os dados.
+print("\n\nTAREFA 1: Imprimindo as primeiras 20 amostras")
+
+# Vamos mudar o data_list para remover o cabeçalho dele.
+print(data_list[0])
+data_list = data_list[1:]
+
+for data in data_list[:20]:
+	print(data)
+
+# Nós podemos acessar as features pelo índice
+# Por exemplo: sample[6] para imprimir gênero, ou sample[-2]
 
 input("Aperte Enter para continuar...")
