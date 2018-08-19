@@ -87,21 +87,20 @@ input("Aperte Enter para continuar...")
 # Agora sabemos como acessar as features, vamos contar quantos Male (Masculinos) e Female (Femininos) o dataset tem
 # TAREFA 4
 # TODO: Conte cada gênero. Você não deveria usar uma função parTODO isso.
-def count_gender(data, gender):
+def count_for_gender(list_genders, gender):
     """
     Function for counting each gender
-    :param data: (type :list) complete search list
+    :param list_genders: (type :list) complete search list
     :param gender: (type :str) data for count in list
     :returns: (type :int) number of genders found for (gender)
 
-    >>> count_gender(['Male', 'Male', 'Femile'],  'Male')
+    >>> count_for_gender(['Male', 'Male', 'Female'],  'Male')
         2
     """
-    return len([count for count in data if count == gender])
+    return len([count for count in list_genders if count == gender])
 
-male = count_gender(column_to_list(data_list, -2), 'Male')
-
-female = count_gender(column_to_list(data_list, -2), 'Female')
+male = count_for_gender(column_to_list(data_list, -2), 'Male')
+female = count_for_gender(column_to_list(data_list, -2), 'Female')
 
 # Verificando o resultado
 print("\nTAREFA 4: Imprimindo quantos masculinos e femininos nós encontramos")
@@ -109,6 +108,37 @@ print("Masculinos: ", male, "\nFemininos: ", female)
 
 # ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
 assert male == 935854 and female == 298784, "TAREFA 4: A conta não bate."
+# -----------------------------------------------------
+
+input("Aperte Enter para continuar...")
+# Por que nós não criamos uma função parTODO isso?
+# TAREFA 5
+# TODO: Crie uma função para contar os gêneros. Retorne uma lista.
+# Isso deveria retornar uma lista com [count_male, count_female] (exemplo: [10, 15] significa 10 Masculinos, 15 Femininos)
+def count_gender(data_list):
+    """
+    function to count genders
+    :param data_list: (type :list) complete data list
+    :returns: (type :list) list with [count_male, count_female]
+
+    >>> count_gender([
+        ['2017-01-01 00:27:21', '2017-01-01 00:42:59', '938', 'Millennium Park', 'Michigan Ave & 18th St', 'Subscriber', 'Male', '1991.0'],
+        ['2017-01-01 00:27:28', '2017-01-01 00:42:44', '916', 'Millennium Park', 'Michigan Ave & 18th St', 'Subscriber', 'Female', '1990.0'],
+        ['2017-01-01 00:27:45', '2017-01-01 00:31:13', '208', 'Damen Ave & Chicago Ave', 'Damen Ave & Division St', 'Subscriber', 'Male', '1982.0']
+    ])
+        [2,1]
+    """
+    male = count_for_gender(column_to_list(data_list, -2), 'Male')
+    female = count_for_gender(column_to_list(data_list, -2), 'Female')
+    return [male, female]
+
+print("\nTAREFA 5: Imprimindo o resultado de count_gender")
+print(count_gender(data_list))
+
+# ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
+assert type(count_gender(data_list)) is list, "TAREFA 5: Tipo incorreto retornado. Deveria retornar uma lista."
+assert len(count_gender(data_list)) == 2, "TAREFA 5: Tamanho incorreto retornado."
+assert count_gender(data_list)[0] == 935854 and count_gender(data_list)[1] == 298784, "TAREFA 5: Resultado incorreto no retorno!"
 # -----------------------------------------------------
 
 input("Aperte Enter para continuar...")
