@@ -59,7 +59,7 @@ for data in data_list[:20]:
 input("Aperte Enter para continuar...")
 # TAREFA 3
 # TODO: Crie uma função para adicionar as colunas(features) de uma lista em outra lista, na mesma ordem
-def column_to_list(data, index):
+def column_to_list(data:list, index:int) -> list:
     """
     Function to add columns from a list to another list.
     :param data: (type :list) list with the data to be extracted
@@ -87,7 +87,7 @@ input("Aperte Enter para continuar...")
 # Agora sabemos como acessar as features, vamos contar quantos Male (Masculinos) e Female (Femininos) o dataset tem
 # TAREFA 4
 # TODO: Conte cada gênero. Você não deveria usar uma função parTODO isso.
-def count_for_gender(list_genders, gender):
+def count_for_gender(list_genders:list, gender:str) -> int:
     """
     Function for counting each gender
     :param list_genders: (type :list) complete search list
@@ -115,7 +115,7 @@ input("Aperte Enter para continuar...")
 # TAREFA 5
 # TODO: Crie uma função para contar os gêneros. Retorne uma lista.
 # Isso deveria retornar uma lista com [count_male, count_female] (exemplo: [10, 15] significa 10 Masculinos, 15 Femininos)
-def count_gender(data_list):
+def count_gender(data_list:list) -> list:
     """
     function to count genders
     :param data_list: (type :list) complete data list
@@ -146,7 +146,15 @@ input("Aperte Enter para continuar...")
 # TAREFA 6
 # TODO: Crie uma função que pegue o gênero mais popular, e retorne este gênero como uma string.
 # Esperamos ver "Masculino", "Feminino", ou "Igual" como resposta.
-def most_popular_gender(data_list):
+def most_popular_gender(data_list:list) -> str:
+    """
+    function that takes the most popular genre
+    :param data_list: (type :list) list with numbers to compare
+    :returns: (type :str) str with the response if the numbers are: "Igual", "Masculino" or "Feminino"
+
+    >>> most_popular_gender([500, 200])
+        "Masculino"
+    """
     answer = "Igual"
     count = count_gender(data_list)
     if count[0] > count[1]:
@@ -181,7 +189,19 @@ input("Aperte Enter para continuar...")
 # TAREFA 7
 # TODO: Crie um gráfico similar para user_types. Tenha certeza que a legenda está correta.
 
-def count_user_types(data_list):
+def count_user_types(data_list:list) -> list :
+    """
+    Function to count users by types
+    :param data_list: (type :list) Complete list with user data
+    :returns: (type :list) List with the sum of each type of user
+
+    >>> count_user_types([
+        ['2017-01-01 00:27:21', '2017-01-01 00:42:59', '938', 'Millennium Park', 'Michigan Ave & 18th St', 'Subscriber', 'Male', '1991.0'],
+        ['2017-01-01 00:27:28', '2017-01-01 00:42:44', '916', 'Millennium Park', 'Michigan Ave & 18th St', 'Subscriber', 'Female', '1990.0'],
+        ['2017-01-01 00:27:45', '2017-01-01 00:31:13', '208', 'Damen Ave & Chicago Ave', 'Damen Ave & Division St', 'Subscriber', 'Male', '1982.0']
+    ])
+        [3]
+    """
     user_types = list(set(column_to_list(data_list, -3)))
     count_types = []
 
@@ -267,3 +287,38 @@ assert len(user_types) == 582, "TAREFA 10: Comprimento errado de start stations.
 # -----------------------------------------------------
 
 input("Aperte Enter para continuar...")
+# TAREFA 11
+# Volte e tenha certeza que você documenteou suas funções. Explique os parâmetros de entrada, a saída, e o que a função faz. Exemplo:
+# def new_function(param1: int, param2: str) -> list:
+"""
+Função de exemplo com anotações.
+Argumentos:
+  param1: O primeiro parâmetro.
+  param2: O segundo parâmetro.
+Retorna:
+  Uma lista de valores x.
+
+"""
+
+input("Aperte Enter para continuar...")
+# TAREFA 12 - Desafio! (Opcional)
+# TODO: Crie uma função para contar tipos de usuários, sem definir os tipos
+# para que nós possamos usar essa função com outra categoria de dados.
+print("Você vai encarar o desafio? (yes ou no)")
+answer = "no"
+
+def count_items(column_list):
+    item_types = []
+    count_items = []
+    return item_types, count_items
+
+
+if answer == "yes":
+    # ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
+    column_list = column_to_list(data_list, -2)
+    types, counts = count_items(column_list)
+    print("\nTAREFA 11: Imprimindo resultados para count_items()")
+    print("Tipos:", types, "Counts:", counts)
+    assert len(types) == 3, "TAREFA 11: Há 3 tipos de gênero!"
+    assert sum(counts) == 1551505, "TAREFA 11: Resultado de retorno incorreto!"
+    # -----------------------------------------------------
