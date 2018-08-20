@@ -253,3 +253,17 @@ assert round(median_trip) == 670, "TAREFA 9: median_trip com resultado errado!"
 # -----------------------------------------------------
 
 input("Aperte Enter para continuar...")
+# TAREFA 10
+# Gênero é fácil porque nós temos apenas algumas opções. E quanto a start_stations? Quantas opções ele tem?
+# TODO: Verifique quantos tipos de start_stations nós temos, usando set()
+user_types = set(column_to_list(data_list, 3))
+
+print("\nTAREFA 10: Imprimindo as start stations:")
+print(len(user_types))
+print(user_types)
+
+# ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
+assert len(user_types) == 582, "TAREFA 10: Comprimento errado de start stations."
+# -----------------------------------------------------
+
+input("Aperte Enter para continuar...")
