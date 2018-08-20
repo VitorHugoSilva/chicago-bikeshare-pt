@@ -305,13 +305,22 @@ input("Aperte Enter para continuar...")
 # TODO: Crie uma função para contar tipos de usuários, sem definir os tipos
 # para que nós possamos usar essa função com outra categoria de dados.
 print("Você vai encarar o desafio? (yes ou no)")
-answer = "no"
+answer = "yes"
 
-def count_items(column_list):
-    item_types = []
+def count_items(column_list:list) -> list:
+    """
+    Function to count user types without defining the types
+    :param column_list: (type :list) column of data to count
+    :returns: <item_types:list>, <count_items:list> list with data and list with quantities
+
+    >>> count_items(['Male', 'Female', 'Male', 'Male', 'Male', 'Male', 'Male', 'Female'])
+        ['Male', 'Female'] , [6,2]
+    """
+    item_types = list(set(column_list))
     count_items = []
+    for item_type in item_types:
+        count_items.append(len([count for count in column_list if count == item_type]))
     return item_types, count_items
-
 
 if answer == "yes":
     # ------------ NÃO MUDE NENHUM CÓDIGO AQUI ------------
